@@ -1,0 +1,273 @@
+What is a data structure?
+A data structure is a way of organizing data so that it can be used effectively.
+They are essential ingredients in creating fast and powerful algorithms. They help to manage and organize data.
+They make code cleaner and easier to understand. 
+It is a key to understand that we have to learn how and when to use a perticular data structure.
+
+
+Abstract data types vs Data structure -->   
+    An Abstract data type is an abstraction of a data structure which provides only the interface to which a data structure must adhere to.
+    The interface does not give any specific details about how something should be implemented or in what programming language.
+
+    Abstraction     Implementation(DS)
+      List            Dynamic Array,
+                       Linked List
+      Queue       Linked List based Queue,
+                    Array based Queue,
+                    Stack based Queue
+      Map           Tree Map, Hash Map,
+                        Hash Table
+
+    An abstract data type only defines how a data structure should bahave and what methods it should have. 
+
+//-------------------------------------------------------------------------------------------------------//
+
+What is computational Complexity Analysis?
+The perfomance that the data structure is providing.
+As programmers, we often find ourselves asking the same two questions over and over again:
+    How much time does this algorithm needs to finish?
+    How much space does this algorithm needs for its computation.
+
+Big-O Nation:
+Big-0 Nation gives an upper bound of the Complexity in the worst case, 
+helping to quantify performance as the input size becomes arbitrarily large.
+
+n -- the size of the input
+complexities ordered in ffrom smallest to largest
+
+Constant time:       O(1)
+Logarithmic time:    O(log(n))
+Linear time:         O(n)
+Linearithmic time:   O(nlog(n))
+Quadric time:        O(n2)
+Cubic time:          O(n3)
+Exponential time:    O(bn), b>1
+Factorial time:      O(n!) 
+
+Big-O only comes into play when our code is big, really really big.
+
+//-------------------------------------------------------------------------------------------------------//
+
+What is a linked list?
+A linked list is a sequential list of nodes that hold data which points to other nodes also containing data.
+The last node points to null as there is no data or element after that. 
+Where is linked list used ?
+        A. Used in many lis, queue and stack implementation.
+        B. Great for creating circular lists.
+        C. Can easily model real world objects such as trains.
+        D. Used in seperate chaining, which is present certain hashtables implementations to deal with hashing collisions.
+        E. Often used in the implementation of adjacency lists for graphs.
+     
+    Head: The first node in a linked list
+    Tail: The last node in a linked list
+    Pointer: Reference to another node
+    Node: An object containing data and pointer(s).
+    
+Singly vs Doubly Linked Lists:
+Singly linked list only hold a reference to the next node. In the implementation you always maintain a reference to head to
+    the linked list and a reference to the tail node for quick additions/removels.
+With doubly linked list each node holds a reference to the next as well as to the previous node. In the implementation we
+    always maintain a reference to the head and the tail of the doubly linked list to quick additions/removels from both
+    ends of your list.
+
+                            PROS                                CONS
+    Singly Linked List --   Uses less memory            --  cannot easily access
+                         Simpler Implementation               previous elements
+    Doubly Linked List --  Can be traversed back        --     Takes 2x memory
+
+//-------------------------------------------------------------------------------------------------------//
+
+What is a stack?
+A stack is a one-ended linear data structure which models a real world stack by having two primary operations,
+    namely push and pop. Stack follows LIFO = Last in First out.
+    Instructions:
+        pop()               --> removes the last element that was entered
+        push("Element")     --> adds element to the end.
+Where is stack used ?
+        A. Used by undo mechanisms in text editor.
+        B. Used in compiler syntax checking for matching brackets and braces.
+        C. Can be used to model a pile of books or plates.
+        D. Used behind the scenes to support recursion by keeping track of previous function calls.
+        E. Can be used to do a "depth first search" (DFS) on a graph. 
+
+        Time complexity:
+        Pushing    --   O(1)   
+        Popping    --   O(1)
+        Peeking    --   O(1) 
+        Searching  --   O(n)
+        Size       --   O(1)
+
+//-------------------------------------------------------------------------------------------------------//
+
+What are queues?
+A queue is a linear data structure which models real world queues by having two primary operations, 
+    namely enqueue and dequeue. Queues follows FIFO = First in First out.
+    Queue Terminoly:
+    There does not seem to be consistant terminoly for inserting and removing elements from a queue.
+            Enqueue = Adding = Offering
+            Dequeue = Polling = Removing
+Where is Queue used?
+        A. Any waiting line models a queue, for example a line up at a movie theatre.
+        B. Can be used to efficiently keep track of the x most recently added element.
+        C. Web server request management where you want first come first serve.
+        D. Breadth first search (BFS) graph traversal.    
+
+        Time complexity:
+        Enqueue    --   O(1)   
+        Dequeue    --   O(1)
+        Peeking    --   O(1) 
+        Contains   --   O(n)
+        Removal    --   O(n)
+        isEmpty    --   O(1)
+        
+//-------------------------------------------------------------------------------------------------------//
+
+What are Priority Queue?
+A Priority Queue is an abstract data type (ADT) that operates similar to a normal queue except that
+    each element has a certain priority. The priority of the elements in the priority queue 
+    determine the order in which elements are removed from the Priority Queue.
+Priority Queue only supports comparable data, meaning the data inserted into the priority queue must 
+    be able to ordered in some way either from least to greatest or greatest to least. This is so 
+    that we are able to assign relatve priorities to each elements.
+    
+What is a Heap?
+A heap is a tree based data structure that satisfies that heap invariant (also called heap property):
+    If A is a parent node of B then A is ordered with respect to B for all nodes A, B in the heap.\
+    That means we have two types of heap Max heap and Min heap.
+
+    WE USE PRIORITY QUEUE IN HEAPS
+    Priority Queues are usually implemented with heaps since this gives them the best possible time complexity.
+    Priority Queue is an Abstract Data Type, hence heaps are not the only way to implement them. As an example 
+        we can use unsorted list, but this would not give us the best time complexity.
+
+
+When and where a Priority Queue is used?
+        A. Used in certain implementation of Dijkstra's Shortest Path algorithm
+        B. Anytime you need the dynamically fetch the 'next best' or 'next worst' element.
+        C. Used in Huffman coding (Which is often used for lossless data compression).
+        D. Best First Search (BFS) algorithms such as A* use Priority Queues to continuously grab the next most promising node.
+        E. Used by minimum Spanning Tree (MST) algorithm.
+
+        Time complexity:
+        Binary Heap Construction    --   O(n)   
+        Polling                     --   O(log(n))
+        Peeking                     --   O(1) 
+        Adding                      --   O(log(n))
+        Naive Removing              --   O(n)
+        Advance removing with
+         help from hash table       --   O(log(n))
+        Navie Contains              --   O(n)
+        Contains Check with
+         help from hash table       --   O(1)
+    
+//-------------------------------------------------------------------------------------------------------//
+
+Taking about heaps, there are many different types of heap that we can use to implement a priority queue.
+    Binary Heap, Fibonacci Heap, Binomial Heap, Pairing Heap etc.
+
+    Binary Heap is a binary tree that supports the heap invariant. In a binary tree every node has exactly two
+        children. A binary heap is a heap where every node has exactly two children.
+    A complete binary tree is a tree in which at every level, except possibly the last is completely filled 
+        and all nodes are as far as possible.
+
+    Removing Elements from binary heap in O(log(n))
+        The inefficiency of the removal algorithm comes from the fact that we have to perform a linear 
+            search to find out where an element is indexed at. What if instead we did a lookup using a 
+            Hashtable to find out where a node is indexed at?
+        A hashtable provides a constant time lookup and update for a mapping from a key (the node value)
+            to a value (the index)
+
+//-------------------------------------------------------------------------------------------------------//
+
+What is Binary Trees and Binary Search Tree (BST)?
+A tree is an undirected graph which satisfies any of the following definations:
+    A. An acyclic connected graph.
+    B. A connected graph with N nodes and N-1 edges.
+    C. An graph in which any two vertices are connected by exactly one path.
+
+    Root Node: The very first element in a tree. If we have a rooted tree then we will want to have
+                a reference to the root node of our tree. It does not always matter which node is selected 
+                to be the root node because any node can root the tree!
+    A child is a node extending from another node. A parent is the inverse of this.
+    A leaf node is a node with no children.
+    A subtree is a tree entirely contained within another. They are usually denoted using triangles.
+        Also subtree may consist of a single node.
+    
+A binary tree is a tree for which every node has at most two child nodes.
+A binary search tree is a binary tree that satisfies the BST invariant: left subtree has smaller elements
+    and right subtree has larger elements.
+
+When and where are Binary Trees Used?
+        A. Used in implementation of binary heaps
+        B. Syntax trees (used by compiler and calculators)
+        C. Treap - A probabilistic DS
+    Binary Search Trees:
+        A. Implementation of some mapand set additions
+        B. Red Black Trees
+        C. AVL Trees
+        D. Splay Tress.
+
+        Time complexity:
+                        Average         Worst
+        Insert    --   O(log(n))    --  O(n)   
+        Delete    --   O(log(n))    --  O(n)  
+        Remove    --   O(log(n))    --  O(n)  
+        Search    --   O(log(n))    --  O(n)  
+    
+//-------------------------------------------------------------------------------------------------------//
+
+What is a hash table?
+A Hash table (HT) is a data structure that provides mapping from keys to values using a technique called hashing.
+    Key(name)           Value(fav Color)
+    "Xbox"        --->        "Green"
+    "Playstation" --->         "Blue"
+    "BTS"         --->        "Purple"
+We may refer to these as key-value pairs
+Keys must be unique, but values can be repeated.
+
+Hash Tables are often used to track item frequencies. For instance, counting the number of times a word appears
+    in a given text.
+The key-value pairs you can place in a HT can be of any type not just strings and numbers, but also objects.
+    However, the keys needs to be hashable, a property we will discuss shortly.
+
+To be able to understand how a mapping its constructed between key-value pairs we first need to talk about the  
+    hash function. Hash Function is a function that maps a key x to a whole number in a fixed range.
+We can also define hash functions for arbitrary objects such as strings, lists, tuples, multi data objects etc.
+
+Properties of Hash Function:
+    1. If H(x) equals H(y) then objects x and y might be equal, but if not they are certainly not equal no matter what.
+    2. A hash function H(x) must be deterministic. Meaning if H(x) = H(y) then H(x) must always produce y and never
+        another value. This may seen obvious, but it is critical to the functionaality of a hash function.
+    3. We try very hard to make uniform hash functions to minimize the number of hash collisons.
+        A hash collision is when two objects x,y hash to the same value.
+
+How does a hash table work?
+Ideally we would like to have a very fast insertion, lookup and removal time for the data we are placing within our hash Table.
+Remarkably, we cab achieve all this in 0(1)* time using a hash function as a way to index into hash table.
+    *The constant time behaviour attributed to hash tables is only true if you have a good uniform hash function.
+
+What if there is a hash collision?
+    We can use one of many hash collision resolution techniques to handle such issues, the two most popular ones are
+        "seperate chaining" and "open addressing".
+    Seperate Chaining deals with hash collisions by maintaining a data structure (usually a linked list) to hold all the different 
+        values which hashed to a particular value.
+        Note: The data structure used to cache the items which hashed to a perticular value is not limited to a linked list.
+              Some implementations use one or a mixture of arrays, binary trees, self balancing trees etc   
+    Open Addressing deals with hash collisions by finding another place within the hash table for the object to go by offsetting it from 
+        the position to which it hashed to. When using open addressing as a collision resolution technique the key-value pairs are stored
+        in the table (array) itself as opposed to a data structure like in seperate chaining.
+        This means we need to care a great deal about the size of our hash table and how many elements are currently in the table.
+            Load Factor = items in table/size of table.
+
+        Time complexity:
+                        Average         Worst
+        Insert    --     O(1)*    --     O(n)   
+        Delete    --     O(1)*    --     O(n)  
+        Remove    --     O(1)*    --     O(n)  
+        Search    --     O(1)*    --     O(n) 
+
+        *The constant time behaviour attributed to hash tables is only true if we have a 
+            good uniform hash function.
+
+//-------------------------------------------------------------------------------------------------------//
+
